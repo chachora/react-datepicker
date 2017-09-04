@@ -82,7 +82,8 @@ export default class DatePicker extends React.Component {
     weekLabel: PropTypes.string,
     withPortal: PropTypes.bool,
     yearDropdownItemNumber: PropTypes.number,
-    shouldCloseOnSelect: PropTypes.bool
+    shouldCloseOnSelect: PropTypes.bool,
+    displayCurrentMonth: PropTypes.bool
   }
 
   static get defaultProps () {
@@ -93,6 +94,7 @@ export default class DatePicker extends React.Component {
       onChange () {},
       disabled: false,
       disabledKeyboardNavigation: false,
+      displayCurrentMonth: false,
       dropdownMode: 'scroll',
       onFocus () {},
       onBlur () {},
@@ -388,7 +390,8 @@ export default class DatePicker extends React.Component {
         onMonthChange={this.props.onMonthChange}
         dayClassName={this.props.dayClassName}
         className={this.props.calendarClassName}
-        yearDropdownItemNumber={this.props.yearDropdownItemNumber}>
+        yearDropdownItemNumber={this.props.yearDropdownItemNumber}
+        displayCurrentMonth={this.props.displayCurrentMonth}>
       {this.props.children}
     </WrappedCalendar>
   }

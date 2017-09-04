@@ -60,7 +60,8 @@ export default class Calendar extends React.Component {
     useWeekdaysShort: PropTypes.bool,
     utcOffset: PropTypes.number,
     weekLabel: PropTypes.string,
-    yearDropdownItemNumber: PropTypes.number
+    yearDropdownItemNumber: PropTypes.number,
+    displayCurrentMonth: PropTypes.bool
   }
 
   static get defaultProps () {
@@ -200,6 +201,8 @@ export default class Calendar extends React.Component {
   }
 
   renderCurrentMonth = (date = this.state.date) => {
+    if (!this.props.displayCurrentMonth)
+      return;
     const classes = ['react-datepicker__current-month']
 
     if (this.props.showYearDropdown) {
